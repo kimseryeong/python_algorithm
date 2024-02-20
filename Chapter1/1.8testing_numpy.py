@@ -21,4 +21,9 @@ def testing_numpy():
     print(grid2)
     print(grid1[1]+10)
     print(grid2[:,2]*2)
+    print(grid2[:,2])
+    print(grid2[:])
+    print(grid2[2])
+    print(grid2[1,2])
 
+testing_numpy()
