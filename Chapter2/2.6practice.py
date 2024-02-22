@@ -111,10 +111,13 @@ def perm(s):
             res.append(c + cc)
     return res
 
+#itertools 모듈에서 제공하는 순열 함수 (permutations)
 def perm2(s):
     res = itertools.permutations(s)
     return ["".join(i) for i in res]
     
+
+#입력 길이 n일때, n이하의 수에 대해서도 순열 나열 
 def combinations(s):
     if len(s) < 2:
         return s
@@ -124,3 +127,54 @@ def combinations(s):
         for j in combinations(s[:1] + s[i+1:]):
             res.append(c + j)
     return res
+
+
+#-------------------------------------------
+#2.6.5 회문
+#어떤 문자열이 회문인지 확인하는 함수
+
+#첫번째 방식 
+def is_palindrome(s):
+    l = s.split(" ")
+    s2 = "".join(l)
+    return s2 == s2[::-1]
+
+#두번째 방식
+def is_palindrome2(s):
+    l = len(s)
+    f, b = 0, l-1
+    while f < l // 2:
+        while s[f] == " ":
+            f += 1
+        while s[b] == " ":
+            b -= 1
+        if s[f] != s[b]:
+            return False
+        f += 1
+        b -= 1
+    return True
+
+#세번째 방식
+def is_palindrome3(s):
+    s = s.strip()
+    if len(s) < 2:
+        return True
+    if s[0] == s[-1]:
+        return is_palindrome(s[1:-1])
+    else:
+        return False
+    
+str1 = "다시 합창합시다"
+str2 = ""
+str3 = "hello"
+print(is_palindrome(str1))
+print(is_palindrome(str2))
+print(is_palindrome(str3))
+print()
+print(is_palindrome2(str1))
+print(is_palindrome2(str2))
+print(is_palindrome2(str3))
+print()
+print(is_palindrome3(str1))
+print(is_palindrome3(str2))
+print(is_palindrome3(str3))
