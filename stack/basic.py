@@ -94,6 +94,17 @@ def peak():
     if(isStackEmpty()):
         print('스택이 비어있습니다.')
         return None
-    data = stack[top]
-    return data
-    
+    return stack[top]
+
+SIZE = 5
+stack = ["커피", "녹차", None, None, None]
+top = 1
+
+print(stack)
+retData = peak()
+print('top의 데이터 확인 : ', retData)
+print(stack)
+pop()
+pop()
+retData = peak()
+print('top의 데이터 확인 : ', retData)
